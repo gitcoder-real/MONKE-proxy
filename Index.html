@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MONKEproxy</title>
+    <style>
+        body {
+            background-color: white;
+            color: black;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        input[type="text"] {
+            padding: 5px;
+            margin: 10px;
+        }
+        button {
+            padding: 8px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>MONKEproxy</h1>
+    
+    <label for="urlInput">Enter URL:</label>
+    <input type="text" id="urlInput" placeholder="Enter URL here">
+    <button onclick="redirectUrl()">Go to URL</button>
+    
+    <script>
+        function redirectUrl() {
+            var url = document.getElementById("urlInput").value;
+            if (!url.startsWith("http://") && !url.startsWith("https://")) {
+                url = "https://" + url;
+            }
+            var proxiedUrl = "https://corsproxy.io/?" + url + "/#translate.google.com";
+            window.location.href = proxiedUrl;
+        }
+    </script>
+</body>
+</html>
